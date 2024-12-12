@@ -344,21 +344,51 @@ a {
 }
 
 /* Estilo para videoclip */
-.videoClip-container {
-  color: white;
-  width: 100%;
-}
-.videoClip {
-  width: 100%;
+.multimedia {
+  color: var(--blanco);
   height: 50vh;
+  h2 {
+    padding: 1rem;
+    height: 15%;
+  }
+}
+
+.video-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 85%;
+  padding-bottom: 1rem;
+}
+
+.videoClip {
+  width: 33%;
+  height: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Estilo para footer */
+.gift-left {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.gift-right {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para footer */
 footer {
   background-color: black; /* Color de fondo oscuro */
   color: #fff; /* Texto en color blanco */
