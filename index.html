@@ -16,18 +16,27 @@
 
   <body>
     <section class="hero">
-      <div class="header">
-        <nav class="menu">
-          <a href="#1">The album</a>
-          <a href="#1">20 years</a>
-          <a href="#1">Deluxe Vinyl Collection</a>
-        </nav>
-        <div class="rrss">
-          <img src="./img/svg/insta.svg" alt="instagram-logo" />
-          <img src="./img/svg/x.svg" alt="x-logo" />
-          <img src="./img/svg/spotify.svg" alt="spotify-logo" />
+
+      <div class="menu2">
+        <!-- Icono hamburguesa -->
+        <div class="menu-hamburguesa" id="menu-toggle">
+            <div class="barra"></div>
+            <div class="barra"></div>
         </div>
-      </div>
+        
+        <!-- Menú de navegación -->
+        <nav class="nav" id="nav-menu">
+            <ul>
+                <li class="enlace"><a href="#1">The Album</a></li>
+                <li class="enlace"><a href="#2">20 years</a></li>
+                <li class="enlace"><a href="#3">The band</a></li>
+                <li class="enlace"><a href="#4">Deluxe Vinyl collection</a></li>
+                <li class="enlace"><a href="#">Multimedia</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
       <div class="contenedor-titulo">
         <div class="title">
           <div class="pill-container">
@@ -38,7 +47,7 @@
         </div>
       </div>
     </section>
-    <section class="body-vinyl">
+    <section class="body-vinyl" id="1">
       <div class="logo">
         <img src="./img/svg/logo.svg" alt="" />
       </div>
@@ -59,7 +68,7 @@
           <div id="vinyl"></div>
         </div>
 
-        <div class="product-container">
+        <div class="product-container" id="2">
           <div class="text-vinyl">
             <h2>Demon Days Deluxe 20th Anniversary</h2>
             <p class="product-bio">
@@ -75,7 +84,7 @@
       </div>
     </section>
 
-    <section class="band">
+    <section class="band" id="3">
       <div class="container-band">
         <div>
           <img class="band-img" src="./img/band.jpg" alt="gorillaz" />
@@ -131,5 +140,8 @@
         <p><a href="">CONTACT</a></p>
       </div>
     </footer>
+
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
