@@ -1,6 +1,7 @@
 :root {
   --blanco: #ffffff;
-  --oscuro: #272727;
+  --oscuro:#0f0f0f;
+  --verde:#00FF85;
 }
 
 /* Reset CSS*/
@@ -23,7 +24,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #333;
-  background-color: #272727;
+  background-color: var(--oscuro);
 }
 
 h1,
@@ -35,7 +36,9 @@ a {
   font-family: "Dm Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
-  text-align: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
@@ -44,6 +47,7 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  width: 100%;
 }
 
 .rrss {
@@ -70,7 +74,11 @@ a {
 
 /* Estilo para el fondo de .hero con superposición */
 .hero {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  justify-content: start;
   background-image: url(../img/gorillaz-hero.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -79,7 +87,7 @@ a {
 }
 
 .contenedor-titulo {
-  height: 60vh;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,11 +114,11 @@ a {
 
 .demondays {
   color: #fff;
-  font-size: 9.6vw;
+  font-size: 8.0vw;
   font-style: normal;
   font-weight: 800;
   max-width: 60rem;
-  line-height: 86%; /* 8.6rem */
+  line-height: 12.6vw; /* 8.6rem */
   letter-spacing: -0.2rem;
   display: flex;
 }
@@ -119,7 +127,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: first baseline;
-  width: 70%;
+  width: 33vw;
   height: fit-content;
 }
 
@@ -308,14 +316,14 @@ a {
   }
 }
 
-.logo img {
+.logo  {
   width: 10rem;
   filter: invert(1);
   margin: 2rem;
   transition: ease-in-out 0.3s;
 }
 
-.logo img:hover {
+.logo:hover {
   filter: invert(37%) sepia(87%) saturate(300%) hue-rotate(85deg)
     brightness(170%);
 }
@@ -427,86 +435,43 @@ footer {
 }
 
 
-.menu-hamburguesa {
+
+
+/* Highlights Section */
+.highlights {
   display: flex;
   flex-direction: column;
-  cursor: pointer;
-  width: 3vw; /* Tamaño adecuado */
-  height: 3vw; /* Tamaño adecuado */
-  justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 20;
-  transition: all 0.3s ease;
+  padding: 40px 0;
+  background: var(--oscuro);
 }
 
-.barra {
-  width: 100%;
-  height: 0.1rem; 
-  background-color: white;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform-origin: center; 
-  margin: 0.3rem;
-}
-
-/* Cuando el menú está activo, las barras se transforman en una X */
-.menu-hamburguesa.active .barra:nth-child(1) {
-  transform: rotate(45deg);
-  margin: 0;
-}
-
-.menu-hamburguesa.active .barra:nth-child(2) {
-  transform: rotate(-45deg);
-margin: 0;}
-
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #272727;
-  width: 100%;
-  height: 100%;
+.highlight-cards {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 10;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
-.nav.active {
-  transform: translateX(0);
-}
-
-
-.nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 0;
-  list-style-type: none;
-}
-
-.nav ul li a {
-  text-decoration: none;
+.card {
+  background: #2f2f2f;
   color: white;
-  font-size: 22px;
-  font-weight: 600;
-  padding: 10px 20px;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  transition: ease-in-out 0.3s;
 }
 
-.nav ul li a:hover {
-  color: #00ff85;
+.card:hover{
+  scale: 1.02;
 }
 
-.enlace {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.card-title {
+  color: #00FF85;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
 }
