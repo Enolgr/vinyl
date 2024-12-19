@@ -16,31 +16,47 @@
 
   <body>
     <section class="hero">
-      <div class="header">
-        <nav class="menu">
-          <a href="#1">The album</a>
-          <a href="#1">20 years</a>
-          <a href="#1">Deluxe Vinyl Collection</a>
-        </nav>
-        <div class="rrss">
-          <img src="./img/svg/insta.svg" alt="instagram-logo" />
-          <img src="./img/svg/x.svg" alt="x-logo" />
-          <img src="./img/svg/spotify.svg" alt="spotify-logo" />
+      <div class="menu2">
+        <!-- Icono hamburguesa -->
+        <div class="menu-hamburguesa" id="menu-toggle">
+          <div class="barra"></div>
+          <div class="barra"></div>
         </div>
+
+        <nav class="nav" id="nav-menu">
+          <ul>
+            <li class="enlace"><a href="#section-1">The Album</a></li>
+            <li class="enlace"><a href="#section-2">20 years</a></li>
+            <li class="enlace"><a href="#section-3">The band</a></li>
+            <li class="enlace">
+              <a href="#section-4">Deluxe Vinyl collection</a>
+            </li>
+            <li class="enlace"><a href="#section-5">Multimedia</a></li>
+            <li class="enlace">
+              <a href="javascript:void(0);" class="history-toggle">See More</a>
+              <ul class="history-submenu">
+                <li><a href="#history-1">The Beginning</a></li>
+                <li><a href="#history-2">The Evolution</a></li>
+                <li><a href="#history-3">Key Moments</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
       </div>
+
       <div class="contenedor-titulo">
         <div class="title">
           <div class="pill-container">
             <div class="pill"><p>20th</p></div>
           </div>
           <div class="anniversary">ANNIVERSARY OF</div>
-          <div class="demondays"> <h1>Demon days</h1></div>
+          <div class="demondays"><h1>Demon days</h1></div>
         </div>
       </div>
     </section>
-    <section class="body-vinyl">
-      <div>
-        <img class="logo" src="./img/svg/logo.svg" alt="" />
+    <section class="body-vinyl" id="section-1">
+      <div class="logo">
+        <img src="./img/svg/logo.svg" alt="" />
       </div>
 
       <h2 class="bio">
@@ -59,7 +75,7 @@
           <div id="vinyl"></div>
         </div>
 
-        <div class="product-container">
+        <div class="product-container" id="section-2">
           <div class="text-vinyl">
             <h2>Demon Days Deluxe 20th Anniversary</h2>
             <p class="product-bio">
@@ -69,13 +85,13 @@
             <div class="pill-container-price">
               <p><strong>¡Pre-save now!</strong></p>
             </div>
-            <div class="pill green"><p>Add to cart:  70$</p></div>
+            <div class="pill green"><p>Add to cart: 70$</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="band">
+    <section class="band" id="section-3">
       <div class="container-band">
         <div>
           <img class="band-img" src="./img/band.jpg" alt="gorillaz" />
@@ -100,30 +116,41 @@
         </div>
       </div>
       <div class="cita">
-        <h2 class="cita-texto">"Gorillaz is not just a band.<br> It's a multimedia experience that redefines what it means to be an artist in the 21st century"</h2>
-        <img class="logo"src="./img/NYT_logo.svg" alt="">
+        <h2 class="cita-texto">
+          "Gorillaz is not just a band.<br />
+          It's a multimedia experience that redefines what it means to be an
+          artist in the 21st century"
+        </h2>
+        <img class="logo" src="./img/NYT_logo.svg" alt="" />
       </div>
     </section>
 
-    <section class="highlights">
+    <section class="highlights" id="section-4">
       <h2 class="bio">A Collectible Experience</h2>
       <div class="highlight-cards">
         <div class="card">
           <h3 class="card-title">Iconic Tracks</h3>
-          <p class="card-text">Includes hits like "Feel Good Inc." and "DARE," remastered for a unique listening experience.</p>
+          <p class="card-text">
+            Includes hits like "Feel Good Inc." and "DARE," remastered for a
+            unique listening experience.
+          </p>
         </div>
         <div class="card">
           <h3 class="card-title">Exclusive Artwork</h3>
-          <p class="card-text">Featuring refreshed cover art and design that captures the album’s original spirit.</p>
+          <p class="card-text">
+            Featuring refreshed cover art and design that captures the album’s
+            original spirit.
+          </p>
         </div>
         <div class="card">
           <h3 class="card-title">Unreleased Tracks</h3>
-          <p class="card-text">Discover a never-before-released song, exclusive to this anniversary edition.</p>
+          <p class="card-text">
+            Discover a never-before-released song, exclusive to this anniversary
+            edition.
+          </p>
         </div>
       </div>
     </section>
-    
-
 
     <footer>
       <div class="left pages">
@@ -131,24 +158,26 @@
         <p><a href="">Terms and condition</a></p>
         <p><a href="">About</a></p>
       </div>
-      
+
       <div class="center">
-        <img src="./img/footer.jpg" class="img-footer">
+        <img src="./img/footer.jpg" class="img-footer" />
         <div class="footer-div">
           <p for="correo">Subscribe to the Newsletter</p>
           <form>
-            <input type="text" placeholder="Email" required>
+            <input type="text" placeholder="Email" required />
             <button type="submit">Subscribe</button>
           </form>
           <p>&copy; Enol & Douglas, Proyecto Final</p>
         </div>
       </div>
 
-      <div class="right pages" >
+      <div class="right pages">
         <p><a href="">Shipping info</a></p>
         <p><a href="">Return conditions</a></p>
         <p><a href="">Contact</a></p>
       </div>
     </footer>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
