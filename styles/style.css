@@ -448,6 +448,7 @@ footer {
 
 .highlight-cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 20px;
 }
@@ -474,4 +475,91 @@ footer {
 
 .card-text {
   font-size: 1rem;
+}
+
+#menu-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 20;
+  transition: all 0.3s ease;
+
+}
+.barra {
+  margin: 0.3rem;
+  transition: transform 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+
+#menu-toggle .barra {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+
+#menu-toggle.active{
+  position: fixed;
+}
+
+#menu-toggle.active .barra:nth-child(1) {
+  transform: rotate(45deg);
+  margin: 0; 
+}
+
+
+#menu-toggle.active .barra:nth-child(2) {
+  transform: rotate(-45deg); 
+  margin: 0; 
+}
+
+
+#nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #272727;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+}
+
+#nav-menu.active {
+  transform: translateX(0);
+}
+
+#nav-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+#nav-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#nav-menu ul li a:hover {
+  color: #00FF85;
 }
