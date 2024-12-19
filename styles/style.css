@@ -522,10 +522,10 @@ marquee {
   margin: 0;
   padding: 0;
   font-size: 1.2rem;
-  color: #fff; /* Color del texto */
-  background-color: #222; /* Fondo oscuro */
-  padding: 1rem 2rem; /* Espacio interno */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+  color: var(--verde); 
+  background-color: #222; 
+  padding: 1rem 2rem; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
 }
 
 
