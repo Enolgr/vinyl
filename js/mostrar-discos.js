@@ -5,11 +5,11 @@ $(document).ready(function () {
         url: "./backend/mostrar-discos.php",
         dataType: "json",
         success: function (response) {
-          if (response.success === true) {
+
             let vinyls = $(".vinyls"); 
             vinyls.empty(); 
 
-            response.data.forEach((element) => {
+            response.vinilos.forEach((element) => {
 
 
               let vinylHTML = `
@@ -21,13 +21,11 @@ $(document).ready(function () {
                     <button class="add" data-id="${element.id}">Add to cart</button>
                 </div>
               `;
-              
+
               vinyls.append(vinylHTML);
 
             });
-          } else {
-            alert("Error loading vinyls: " + response.message);
-          }
+
         },
         error: function (xhr, status, error) {
           console.error("AJAX Error:", status, error);
