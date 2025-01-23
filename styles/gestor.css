@@ -316,3 +316,8 @@ select option {
 .add-album button:hover {
   background-color: #60d361;
 }
+
+.input-error {
+  border: 1px solid red;
+  background-color: #ffe6e6;
+}

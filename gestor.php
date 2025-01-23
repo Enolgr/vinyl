@@ -91,7 +91,7 @@
     <label for="imagen">Subir imagen</label>
     <input type="file" name="imagen" id="imagen" accept="image/*" required>
 
-    <button type="submit">Añadir Álbum</button>
+    <button type="submit" id="add-album">Añadir Álbum</button>
 </form>
 
     </div>

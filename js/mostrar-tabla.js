@@ -81,4 +81,42 @@ $(document).ready(function () {
             "max-width": "100%"
         });
     });
+
+    $("#add-album").click(function (e) {
+        e.preventDefault(); // Evita el envío predeterminado del formulario
+    
+        // Verifica si todos los campos del formulario están llenos
+        let isValid = true;
+        $(".add-album input, .add-album select").each(function () {
+            if ($(this).val().trim() === "") {
+                isValid = false;
+                $(this).addClass("input-error"); // Añade una clase para resaltar el error
+            } else {
+                $(this).removeClass("input-error"); // Remueve el error si el campo es válido
+            }
+        });
+    
+        if (isValid) {
+            const formData = new FormData($(".add-album")[0]); // Captura los datos del formulario
+            $.ajax({
+                type: "POST",
+                url: "subir-vinilo",
+                data: formData,
+                processData: false, 
+                contentType: false, 
+                success: function (response) {
+                    // Manejar la respuesta del servidor
+                    alert("Álbum añadido con éxito");
+                    $(".add-album")[0].reset(); // Resetea el formulario
+                },
+                error: function (xhr, status, error) {
+                    // Manejar errores
+                    alert("Error al añadir el álbum: " + error);
+                },
+            });
+        } else {
+            alert("Por favor, completa todos los campos del formulario.");
+        }
+    });
+    
 });
