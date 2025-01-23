@@ -9,27 +9,21 @@
 <body>
     <h1>Vinyl Store Manager</h1>
     <table class="vinyl-table">
-  <thead>
-    <tr>
-      <th>Imagen</th>
-      <th class="nombre-disco">Nombre</th>
-      <th class="precio-disco">Precio</th>
-      <th class="descripcion-disco">Descripción</th>
-      <th class="autor-disco">Autor</th>
-      <th class="genero-disco">Género</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="vinyl-item">
-      <td><img class="item img-disco" src="https://i.scdn.co/image/ab67616d0000b273a408c78e231f716383a58eb3" alt="Disco"></td>
-      <td class="item nombre-disco">Nombredeldisco</td>
-      <td class="item precio-disco">precio</td>
-      <td class="item descripcion-disco">descripcion</td>
-      <td class="item autor-disco">autor</td>
-      <td class="item genero-disco">genero</td>
-    </tr>
-    <!-- Puedes agregar más filas para otros discos -->
-  </tbody>
-</table>
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th class="nombre-disco">Nombre</th>
+                <th class="precio-disco">Precio</th>
+                <th class="descripcion-disco">Descripción</th>
+                <th class="autor-disco">Autor</th>
+                <th class="genero-disco">Género</th>
+                <th class="publicado-disco">Publicado</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="./js/mostrar-tabla.js"></script>
 </body>
 </html>
