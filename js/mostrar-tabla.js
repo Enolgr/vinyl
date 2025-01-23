@@ -13,7 +13,7 @@ $(document).ready(function () {
                             ? '<input type="checkbox" class="publicado-checkbox" checked disabled>'
                             : '<input type="checkbox" class="publicado-checkbox" disabled>';
                         filas += `
-                            <tr class="vinyl-item" data-publicado="${vinilo.published}">
+                            <tr class="vinyl-item" data-publicado="${vinilo.published}" data-genero="${vinilo.genre}">
                                 <td><img class="item img-disco" src="${vinilo.image}" alt="${vinilo.title}"></td>
                                 <td class="item nombre-disco">${vinilo.title}</td>
                                 <td class="item precio-disco">${vinilo.price} &euro;</td>
@@ -47,6 +47,18 @@ $(document).ready(function () {
         });
     }
 
+    function filtrarGenero() {
+        const generoSeleccionado = $("#genero").val();
+        $(".vinyl-item").each(function () {
+            const filaGenero = $(this).data("genero").toString();
+            if (generoSeleccionado === "" || filaGenero === generoSeleccionado) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+
     cargarTabla();
 
     $("#search-input").on("keyup", function () {
@@ -65,52 +77,43 @@ $(document).ready(function () {
         filtrarPublicado();
     });
 
-    // Abre la modal al hacer clic en el botón
+    $("#genero").on("change", function () {
+        filtrarGenero();
+    });
+
     $("#boton-add").on("click", function () {
         $("#modal-add").addClass("active");
     });
 
-    // Cierra la modal al hacer clic en el botón de cerrar
     $(document).on("click", "#modal-add .close-button", function () {
         $("#modal-add").removeClass("active");
     });
 
-    $(document).ajaxComplete(function () {
-        $(".vinyl-table").css({
-            "overflow-x": "hidden",
-            "max-width": "100%"
-        });
-    });
-
     $("#add-album").click(function (e) {
-        e.preventDefault(); // Evita el envío predeterminado del formulario
-    
-        // Verifica si todos los campos del formulario están llenos
+        e.preventDefault();
         let isValid = true;
         $(".add-album input, .add-album select").each(function () {
             if ($(this).val().trim() === "") {
                 isValid = false;
-                $(this).addClass("input-error"); // Añade una clase para resaltar el error
+                $(this).addClass("input-error");
             } else {
-                $(this).removeClass("input-error"); // Remueve el error si el campo es válido
+                $(this).removeClass("input-error");
             }
         });
-    
+
         if (isValid) {
-            const formData = new FormData($(".add-album")[0]); // Captura los datos del formulario
+            const formData = new FormData($(".add-album")[0]);
             $.ajax({
                 type: "POST",
                 url: "subir-vinilo",
                 data: formData,
-                processData: false, 
-                contentType: false, 
-                success: function (response) {
-                    // Manejar la respuesta del servidor
+                processData: false,
+                contentType: false,
+                success: function () {
                     alert("Álbum añadido con éxito");
-                    $(".add-album")[0].reset(); // Resetea el formulario
+                    $(".add-album")[0].reset();
                 },
                 error: function (xhr, status, error) {
-                    // Manejar errores
                     alert("Error al añadir el álbum: " + error);
                 },
             });
@@ -118,5 +121,4 @@ $(document).ready(function () {
             alert("Por favor, completa todos los campos del formulario.");
         }
     });
-    
 });

@@ -29,8 +29,23 @@
   </option>
   </select>
   <select name="genero" id="genero">
-   <option value="1">Rock</option>
-   <option value="2">Pop</option>
+  <option value="">Selecciona un género</option>
+  <option value="Rock">Rock</option>
+<option value="Pop">Pop</option>
+<option value="Indie">Indie</option>
+<option value="Electrónica">Electrónica</option>
+<option value="Jazz">Jazz</option>
+<option value="Hip Hop">Hip Hop</option>
+<option value="Reggae">Reggae</option>
+<option value="Flamenco">Flamenco</option>
+<option value="Folk">Folk</option>
+<option value="Experimental">Experimental</option>
+<option value="Punk">Punk</option>
+<option value="Trap">Trap</option>
+<option value="Soul">Soul</option>
+<option value="R&B">R&B</option>
+<option value="Fusión">Fusión</option>
+
   </select>
 
     </div>
