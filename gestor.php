@@ -106,6 +106,9 @@
     <label for="imagen">Subir imagen</label>
     <input type="file" name="imagen" id="imagen" accept="image/*" required>
 
+    <label for="precio">Precio</label>
+    <input type="number" name="precio" required>
+
     <button type="submit" id="add-album">Añadir Álbum</button>
 </form>
 
