@@ -36,13 +36,15 @@ h1 {
 }
 
 .vinyl-table {
+  margin-top: 2rem;
   background-color: var(--blanco);
   width: 100%;
   max-width: 80%;
   padding: 1rem;
   border-radius: 20px;
-  table-layout: fixed;
+  table-layout: auto;
   overflow: hidden;
+  border-spacing: 0;
 }
 
 .vinyl-table th,
@@ -50,17 +52,22 @@ h1 {
   word-wrap: break-word;
   text-align: left;
   padding: 0.5rem;
+  vertical-align: middle;
+}
+
+.vinyl-table tr:hover {
+  background-color: rgba(0, 255, 133, 0.2);
 }
 
 .img-disco {
-  width: 3rem;
+  width: 5rem;
   height: auto;
   max-width: 100%;
   object-fit: cover;
 }
 
 .descripcion-disco {
-  max-width: 250px;
+  max-width: 400px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -78,10 +85,16 @@ h1 {
   }
 
   .img-disco {
-    width: 2rem; 
+    width: 4rem; 
   }
 }
 
 .precio-disco{
   width: fit-content;
 }
+
+.nombre-disco{
+  width: fit-content;
+  padding-right: 0;
+}
+
