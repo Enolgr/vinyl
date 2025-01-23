@@ -4,7 +4,7 @@ header('Content-Type: application/json; charset=utf-8');
 include_once "./db.php";
 
 // Realizar la consulta SQL
-$sql = "SELECT id_album, img, nombre_album, nombre_artista, precio FROM albums a JOIN artistas ar ON a.id_album = ar.id_artista JOIN genero ON id_genero = a.genero";
+$sql = "SELECT id_album, img, nombre_album, nombre_artista, precio FROM albums a JOIN artistas ar ON a.id_album = ar.id_artista JOIN genero ON id_genero = a.genero WHERE publicado =1";
 
 $result = $conn->query($sql);
 $vinilos = array();
