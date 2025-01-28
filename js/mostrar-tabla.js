@@ -1,7 +1,7 @@
 $(document).ready(function () {
     function cargarTabla() {
         $.ajax({
-            type: "get",
+            type: "GET",
             url: "./backend/mostrar-tabla.php",
             dataType: "json",
             success: function (response) {
@@ -136,6 +136,7 @@ $(document).ready(function () {
     $("#add-album").click(function (e) {
         e.preventDefault();
         let isValid = true;
+
         $(".add-album input, .add-album select").each(function () {
             if ($(this).val().trim() === "") {
                 isValid = false;
@@ -149,7 +150,7 @@ $(document).ready(function () {
             const formData = new FormData($(".add-album")[0]);
             $.ajax({
                 type: "POST",
-                url: "subir-vinilo",
+                url: "./backend/subir-vinilo.php",
                 data: formData,
                 processData: false,
                 contentType: false,
