@@ -86,11 +86,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Insertar álbum
             error_log("Insertando álbum...");
+            $relativePath = "./backend/uploads/" . $imageName; // Ruta relativa para la base de datos
             $stmt = $conn->prepare(
                 "INSERT INTO albums (nombre_album, artista, genero, precio, descripcion, publicado, img) 
                 VALUES (?, ?, ?, ?, ?, 0, ?)"
             );
-            $stmt->bind_param('siidss', $nombreAlbum, $artistaId, $genero, $precio, $descripcion, $uploadFile);
+            $stmt->bind_param('siidss', $nombreAlbum, $artistaId, $genero, $precio, $descripcion, $relativePath);
 
             if ($stmt->execute()) {
                 $conn->commit();
@@ -125,3 +126,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 echo json_encode($response);
+?>
