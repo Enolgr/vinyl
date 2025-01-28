@@ -63,7 +63,6 @@ $(document).ready(function () {
             url: "./backend/estado.php",
             data: { id: id, estado: estado },
             success: function () {
-                alert("Estado actualizado correctamente.");
                 cargarTabla();
             },
             error: function (xhr, status, error) {
@@ -155,7 +154,6 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 success: function () {
-                    alert("Álbum añadido con éxito");
                     $(".add-album")[0].reset();
                     cargarTabla(); // Recargar la tabla después de añadir
                 },
