@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-require_once __DIR__ . '/db.php';
+require_once "db.php";
 
 $response = [
     'success' => false,
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Configuración de subida con ruta relativa
-    $uploadDir = "./backend/uploads/"; // Ruta relativa
+    $uploadDir = "./uploads/"; // Ruta relativa
     $imageName = basename($_FILES['imagen']['name']);
     $uploadFile = $uploadDir . $imageName;
 
