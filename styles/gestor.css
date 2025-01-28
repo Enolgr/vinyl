@@ -321,3 +321,98 @@ select option {
   border: 1px solid red;
   background-color: #ffe6e6;
 }
+
+.modal-confirm-state {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--blanco);
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-confirm-state.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-confirm-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.modal-confirm-content p {
+  font-size: 1.2rem;
+  color: var(--oscuro);
+  margin: 0;
+}
+
+.modal-confirm-content button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-confirm-content button:hover {
+  transform: scale(1.05);
+}
+
+.modal-confirm-content #confirm-state-button {
+  background-color: var(--verde);
+  color: var(--oscuro);
+}
+
+.modal-confirm-content #confirm-state-button:hover {
+  background-color: #60d361;
+}
+
+.modal-confirm-content #cancel-state-button {
+  background-color: var(--oscuro);
+  color: var(--blanco);
+}
+
+.modal-confirm-content #cancel-state-button:hover {
+  background-color: #000;
+}
+
+/* Fondo oscuro para el modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-backdrop.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.confirm-cancel{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

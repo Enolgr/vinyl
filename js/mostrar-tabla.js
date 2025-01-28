@@ -10,8 +10,8 @@ $(document).ready(function () {
                     response.tabla_vinilos.forEach(function (vinilo) {
                         let description = vinilo.description || "Descripción no disponible";
                         let publicadoCheckbox = vinilo.published == 1
-                            ? '<input type="checkbox" class="publicado-checkbox" checked disabled>'
-                            : '<input type="checkbox" class="publicado-checkbox" disabled>';
+                            ? `<input type="checkbox" class="publicado-checkbox" data-id="${vinilo.id}" checked>`
+                            : `<input type="checkbox" class="publicado-checkbox" data-id="${vinilo.id}">`;
                         filas += `
                             <tr class="vinyl-item" data-publicado="${vinilo.published}" data-genero="${vinilo.genre}">
                                 <td><img class="item img-disco" src="${vinilo.image}" alt="${vinilo.title}"></td>
@@ -24,6 +24,28 @@ $(document).ready(function () {
                             </tr>`;
                     });
                     $(".vinyl-table tbody").html(filas);
+
+                    // Añadir evento a los checkboxes
+                    $(".publicado-checkbox").on("click", function () {
+                        const id = $(this).data("id");
+                        const nuevoEstado = $(this).is(":checked") ? 1 : 0;
+
+                        // Mostrar el modal de confirmación
+                        $(".modal-backdrop").addClass("active");
+                        $("#modal-confirm-state").addClass("active");
+
+                        // Confirmar la acción
+                        $("#confirm-state-button").off("click").on("click", function () {
+                            cambiarEstado(id, nuevoEstado);
+                            cerrarModalConfirmacion();
+                        });
+
+                        // Cancelar la acción
+                        $("#cancel-state-button").off("click").on("click", function () {
+                            cerrarModalConfirmacion();
+                            cargarTabla(); // Restablecer el estado original
+                        });
+                    });
                 } else {
                     $(".vinyl-table tbody").html("<tr><td colspan='7'>No se encontraron resultados.</td></tr>");
                 }
@@ -33,6 +55,28 @@ $(document).ready(function () {
                 $(".vinyl-table tbody").html("<tr><td colspan='7'>Error al cargar los datos.</td></tr>");
             }
         });
+    }
+
+    function cambiarEstado(id, estado) {
+        $.ajax({
+            type: "post",
+            url: "./backend/estado.php",
+            data: { id: id, estado: estado },
+            success: function () {
+                alert("Estado actualizado correctamente.");
+                cargarTabla();
+            },
+            error: function (xhr, status, error) {
+                console.error("Error al actualizar el estado:", status, error);
+                alert("No se pudo actualizar el estado.");
+                cargarTabla();
+            }
+        });
+    }
+
+    function cerrarModalConfirmacion() {
+        $(".modal-backdrop").removeClass("active");
+        $("#modal-confirm-state").removeClass("active");
     }
 
     function filtrarPublicado() {
@@ -59,8 +103,6 @@ $(document).ready(function () {
         });
     }
 
-    cargarTabla();
-
     $("#search-input").on("keyup", function () {
         const query = $(this).val().toLowerCase();
         $(".vinyl-item").each(function () {
@@ -83,10 +125,12 @@ $(document).ready(function () {
 
     $("#boton-add").on("click", function () {
         $("#modal-add").addClass("active");
+        $(".modal-backdrop").addClass("active");
     });
 
     $(document).on("click", "#modal-add .close-button", function () {
         $("#modal-add").removeClass("active");
+        $(".modal-backdrop").removeClass("active");
     });
 
     $("#add-album").click(function (e) {
@@ -112,6 +156,7 @@ $(document).ready(function () {
                 success: function () {
                     alert("Álbum añadido con éxito");
                     $(".add-album")[0].reset();
+                    cargarTabla(); // Recargar la tabla después de añadir
                 },
                 error: function (xhr, status, error) {
                     alert("Error al añadir el álbum: " + error);
@@ -121,4 +166,7 @@ $(document).ready(function () {
             alert("Por favor, completa todos los campos del formulario.");
         }
     });
+
+    // Cargar tabla al iniciar
+    cargarTabla();
 });

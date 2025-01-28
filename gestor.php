@@ -20,14 +20,13 @@
         </svg>
     </button>
 </div>
+
 <select name="publicados" id="publicados">
-  <option value="1">
-    publicado
-  </option>
-  <option value="0">
-    no publicado
-  </option>
-  </select>
+  <option value="all" selected>Todos</option>
+  <option value="1">Publicado</option>
+  <option value="0">No publicado</option>
+</select>
+
   <select name="genero" id="genero">
   <option value="">Selecciona un género</option>
   <option value="Rock">Rock</option>
@@ -109,6 +108,17 @@
     <button type="submit" id="add-album">Añadir Álbum</button>
 </form>
 
+    </div>
+</div>
+
+<div class="modal-backdrop"></div>
+<div id="modal-confirm-state" class="modal-confirm-state">
+    <div class="modal-confirm-content">
+        <p id="modal-confirm-message">¿Estás seguro de cambiar el estado de publicación?</p>
+        <div class="confirm-cancel">
+        <button id="confirm-state-button">Aceptar</button>
+        <button id="cancel-state-button">Cancelar</button>
+        </div>
     </div>
 </div>
 
