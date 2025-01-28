@@ -3,7 +3,7 @@ header('Content-Type: application/json; charset=utf-8');
 
 include_once "./db.php";
 
-$sql = "SELECT id_album, img, nombre_album, nombre_artista, descripcion, nombre_genero, precio, publicado FROM albums a JOIN artistas ar ON a.id_album = ar.id_artista JOIN genero g ON id_genero = a.genero";
+$sql = "SELECT id_album, img, nombre_album, nombre_artista, descripcion, nombre_genero, precio, publicado FROM albums a  JOIN artistas ar ON a.artista = ar.id_artista JOIN genero g ON id_genero = a.genero order by nombre_album asc";
 
 $result = $conn->query($sql);
 $tabla_vinilos = array();
