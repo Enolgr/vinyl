@@ -237,6 +237,7 @@ select option {
   padding: 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   position: relative;
+  height: 90vh;
 }
 
 #modal-add .close-button {
@@ -264,7 +265,8 @@ select option {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .add-album input[type="number"] {
