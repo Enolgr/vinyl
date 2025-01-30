@@ -1,0 +1,463 @@
+:root {
+  --blanco: #ffffff;
+  --oscuro: #0f0f0f;
+  --verde: #00ff85;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+  background-color: var(--oscuro);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+h1 {
+  color: var(--blanco);
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+.vinyl-table {
+  margin-top: 2rem;
+  background-color: var(--blanco);
+  width: 100%;
+  max-width: 80%;
+  padding: 1rem;
+  border-radius: 20px;
+  table-layout: auto;
+  overflow: hidden;
+  border-spacing: 0;
+}
+
+.vinyl-table th,
+.vinyl-table td {
+  word-wrap: break-word;
+  text-align: left;
+  padding: 0.5rem;
+  vertical-align: middle;
+}
+
+.vinyl-table tr:hover {
+  background-color: rgba(0, 255, 133, 0.2);
+}
+
+.img-disco {
+  width: 5rem;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.descripcion-disco {
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .vinyl-table {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .vinyl-table th,
+  .vinyl-table td {
+    font-size: 0.8rem; 
+  }
+
+  .img-disco {
+    width: 4rem; 
+  }
+}
+
+.precio-disco{
+  width: fit-content;
+}
+
+.nombre-disco{
+  width: fit-content;
+  padding-right: 0;
+}
+
+
+
+/*Buscador */
+.buscador{
+  width: 100%;
+  background-color: var(--blanco);
+  border-radius: 20px;
+  padding: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-container input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-container input[type="text"]:focus {
+  border-color: #67cb24;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.search-container button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-container button svg {
+  width: 20px;
+  height: 20px;
+  transition: fill 0.3s ease;
+}
+
+select {
+  width: 12rem;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  background-color: white;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23999%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 class=%27feather feather-chevron-down%27%3e%3cpolyline points=%276 9 12 15 18 9%27/%3e%3c/svg%3e');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 16px;
+}
+
+select:focus {
+  border-color: #67cb24;
+  box-shadow: 0 4px 10px rgba(103, 203, 36, 0.2);
+}
+
+select option {
+  padding: 12px;
+}
+
+#boton-add {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 5rem;
+  height: 5rem;
+  color: var(--oscuro);
+  background-color: var(--verde);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#boton-add:hover {
+  transform: scale(1.1);
+}
+
+
+#modal-add {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+#modal-add.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#modal-add .modal-content {
+  background-color: #fff;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+#modal-add .close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+#modal-add .close-button:hover {
+  color: #000;
+}
+
+
+/* Formulario subida */
+.add-album {
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-album input[type="number"] {
+  -moz-appearance: textfield; /* Eliminar las flechas en Firefox */
+  -webkit-appearance: none;   /* Eliminar las flechas en Chrome/Safari */
+  appearance: none;           /* Eliminar las flechas en navegadores modernos */
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Para algunos navegadores como Edge, también es necesario especificar esto */
+.add-album input[type="number"]::-webkit-outer-spin-button,
+.add-album input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-album input[type="number"]:focus {
+  border-color: #67cb24;
+  box-shadow: 0 4px 10px rgba(103, 203, 36, 0.2);
+}
+
+.add-album label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.add-album input[type="text"],
+.add-album select,
+.add-album input[type="file"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-album input[type="text"]:focus,
+.add-album input[type ="number"]:focus,
+.add-album select:focus,
+.add-album input[type="file"]:focus {
+  border-color: #67cb24;
+  box-shadow: 0 4px 10px rgba(103, 203, 36, 0.2);
+}
+
+.add-album select {
+  appearance: none;
+  background-color: white;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23999%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 class=%27feather feather-chevron-down%27%3e%3cpolyline points=%276 9 12 15 18 9%27/%3e%3c/svg%3e');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 16px;
+}
+
+.add-album button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--verde);
+  color: var(--oscuro);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-album button:hover {
+  background-color: #60d361;
+}
+
+.input-error {
+  border: 1px solid red;
+  background-color: #ffe6e6;
+}
+
+.modal-confirm-state {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--blanco);
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-confirm-state.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-confirm-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.modal-confirm-content p {
+  font-size: 1.2rem;
+  color: var(--oscuro);
+  margin: 0;
+}
+
+.modal-confirm-content button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-confirm-content button:hover {
+  transform: scale(1.05);
+}
+
+.modal-confirm-content #confirm-state-button {
+  background-color: var(--verde);
+  color: var(--oscuro);
+}
+
+.modal-confirm-content #confirm-state-button:hover {
+  background-color: #60d361;
+}
+
+.modal-confirm-content #cancel-state-button {
+  background-color: var(--oscuro);
+  color: var(--blanco);
+}
+
+.modal-confirm-content #cancel-state-button:hover {
+  background-color: #000;
+}
+
+/* Fondo oscuro para el modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-backdrop.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.confirm-cancel{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#tienda-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--verde);
+  color: var(--oscuro);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+#tienda-button:hover {
+  background-color: #60d361;
+  transform: scale(1.05);
+}

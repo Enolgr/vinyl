@@ -12,9 +12,10 @@ menuToggle.addEventListener("click", () => {
 // Añadir desplazamiento suave y cerrar el menú al hacer clic en un enlace, excepto en "History"
 menuLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
-    // Verificar si el enlace es "History"
-    if (!link.classList.contains('history-toggle')) {
-      e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+    // Solo evitar el comportamiento predeterminado si el enlace apunta a una sección interna
+    if (link.getAttribute("href").startsWith("#")) {
+      // Evita el comportamiento predeterminado del enlace
+      e.preventDefault();
 
       // Cerrar el menú
       menuToggle.classList.remove("active");
