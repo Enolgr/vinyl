@@ -156,8 +156,6 @@ $(document).ready(function () {
                 success: function () {
                     $(".add-album")[0].reset();
                     cargarTabla(); // Recargar la tabla después de añadir
-                    $("#modal-add").removeClass("active");
-                    $(".modal-backdrop").removeClass("active");
                 },
                 error: function (xhr, status, error) {
                     alert("Error al añadir el álbum: " + error);
