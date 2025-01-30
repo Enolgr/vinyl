@@ -267,6 +267,31 @@ select option {
   gap: 1.5rem;
 }
 
+.add-album input[type="number"] {
+  -moz-appearance: textfield; /* Eliminar las flechas en Firefox */
+  -webkit-appearance: none;   /* Eliminar las flechas en Chrome/Safari */
+  appearance: none;           /* Eliminar las flechas en navegadores modernos */
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Para algunos navegadores como Edge, también es necesario especificar esto */
+.add-album input[type="number"]::-webkit-outer-spin-button,
+.add-album input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-album input[type="number"]:focus {
+  border-color: #67cb24;
+  box-shadow: 0 4px 10px rgba(103, 203, 36, 0.2);
+}
+
 .add-album label {
   font-size: 1rem;
   color: #333;
@@ -286,6 +311,7 @@ select option {
 }
 
 .add-album input[type="text"]:focus,
+.add-album input[type ="number"]:focus,
 .add-album select:focus,
 .add-album input[type="file"]:focus {
   border-color: #67cb24;
@@ -415,4 +441,23 @@ select option {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+#tienda-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--verde);
+  color: var(--oscuro);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+#tienda-button:hover {
+  background-color: #60d361;
+  transform: scale(1.05);
 }

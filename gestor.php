@@ -46,7 +46,8 @@
 <option value="Fusión">Fusión</option>
 
   </select>
-
+  <a href="./tienda.html">
+<button id="tienda-button">Ir a la tienda</button></a>
     </div>
 
     <table class="vinyl-table">
